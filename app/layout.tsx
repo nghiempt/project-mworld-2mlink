@@ -3,6 +3,7 @@ import ThemeRegistry from "@/theme/theme-registry";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
 import ProvidersContext from "@/context/providers-context";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({
 }) => {
   return (
     <html lang="vi">
+      <GoogleAnalytics gaId="G-Y7Z935T8GP" />
       <ThemeRegistry>
         <body className={montserrat.className}>
           <ProvidersContext>{children}</ProvidersContext>
