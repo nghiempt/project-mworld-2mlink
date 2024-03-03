@@ -59,7 +59,7 @@ export default function HomePage() {
         onClose={handleClose}
         message="Đã sao chép"
       />
-      <img onClick={() => directMlink(URL.MWORLD)} className="lg:w-1/2 px-4 rounded-lg cursor-pointer" src={URL.BANNER} alt="gai-xinh" />
+      <img onClick={() => directMlink(URL.MWORLD)} className="lg:w-1/2 px-4 rounded-lg cursor-pointer" src={URL.BANNER_04} alt="gai-xinh" />
       <div className="lg:w-1/2 px-4">
         <div className="flex flex-col gap-y-4 justify-center items-center bg-[rgb(29,29,29)] rounded-lg py-10 px-10 w-full mt-6 border-t-[6px] border-blue-700">
           <h1 className="text-[14px] text-white">Bạn sẽ chuyển đến: {URL.MWORLD}</h1>
