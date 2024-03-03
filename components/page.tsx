@@ -3,6 +3,7 @@
 import { URL } from "@/constant/url";
 import { generateCode } from "@/utils/helper";
 import { Snackbar } from "@mui/material";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function HomePage() {
@@ -10,6 +11,8 @@ export default function HomePage() {
   const [openCode, setOpenCode] = useState(false);
   const [code, setCode] = useState('');
   const [open, setOpen] = React.useState(false);
+
+  const searchParams = useSearchParams()
 
   const handleCountDown = () => {
     setInterval(() => {
@@ -35,10 +38,11 @@ export default function HomePage() {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
+    window.open(`${URL.MWORLD}/detail?id=${searchParams.get('id')}&title=${searchParams.get('title')}&code=${generateCode().toString()}`);
   };
 
-  const directMlink = () => {
-    window.open(URL.TELEGRAM)
+  const directMlink = (url: string) => {
+    window.open(url)
   }
 
   useEffect(() => {
@@ -55,10 +59,8 @@ export default function HomePage() {
         onClose={handleClose}
         message="Đã sao chép"
       />
-      <div className="flex flex-row justify-center items-center bg-[rgb(41,99,121)] py-10 w-full">
-        <h1 className="text-[34px] text-[rgb(204,131,46)] font-bold">Lấy Code Đọc Truyện</h1>
-      </div>
-      <div className="lg:w-1/2 p-4">
+      <img onClick={() => directMlink(URL.MWORLD)} className="lg:w-1/2 px-4 rounded-lg cursor-pointer" src={URL.BANNER} alt="gai-xinh" />
+      <div className="lg:w-1/2 px-4">
         <div className="flex flex-col gap-y-4 justify-center items-center bg-[rgb(29,29,29)] rounded-lg py-10 px-10 w-full mt-6 border-t-[6px] border-blue-700">
           <h1 className="text-[14px] text-white">Bạn sẽ chuyển đến: {URL.MWORLD}</h1>
           {
@@ -82,7 +84,7 @@ export default function HomePage() {
             </p>
           </div>
           <h1 className="text-white">Nếu chưa biết cách vượt link thì nhấn vào đây để xem hướng dẫn chi tiết nhất !!!</h1>
-          <div className="cursor-pointer" onClick={directMlink}>
+          <div className="cursor-pointer" onClick={() => directMlink(URL.TELEGRAM)}>
             <img className="rounded-lg" src={URL.BANNER} alt="gai-xinh" />
           </div>
         </div>
@@ -93,7 +95,7 @@ export default function HomePage() {
           </div>
           <div className="flex w-full justify-center items-center mt-4">
             <h1>Liên hệ quảng cáo: </h1>
-            <h1 className="text-green-700 font-semibold ml-2 cursor-pointer" onClick={directMlink}>@adsexlinkonline (Telegram)</h1>
+            <h1 className="text-green-700 font-semibold ml-2 cursor-pointer" onClick={() => directMlink(URL.TELEGRAM)}>@adsexlinkonline (Telegram)</h1>
           </div>
         </div>
       </div>
