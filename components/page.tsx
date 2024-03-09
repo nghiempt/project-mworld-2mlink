@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function HomePage() {
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(15);
   const [openCode, setOpenCode] = useState(false);
   const [code, setCode] = useState('');
   const [open, setOpen] = React.useState(false);
@@ -25,9 +25,10 @@ export default function HomePage() {
   };
 
   const handleClick = () => {
-    const newCode = generateCode()
-    setCode(newCode.toString())
-    setOpenCode(true)
+    window.open(URL.MWORLD)
+    // const newCode = generateCode()
+    // setCode(newCode.toString())
+    // setOpenCode(true)
   }
 
   const handleCopy = () => {
@@ -70,11 +71,11 @@ export default function HomePage() {
             openCode ? <div className="flex flex-col mb-4 mt-2">
               <button className={`py-2 px-4 mb-2 ${count < 0 ? 'bg-white hover:opacity-70' : 'bg-[#ccc]'}  text-gray-700 font-semibold rounded-lg`}>{code}</button>
               <button onClick={handleCopy} className={`py-2 px-4 ${count < 0 ? 'bg-[rgb(40,96,26)] hover:opacity-70' : 'bg-[#ccc]'}  text-white font-semibold rounded-lg`}>Sao chép</button>
-            </div> : <button onClick={handleClick} className={`py-2 px-4 ${count < 0 ? 'bg-[rgb(40,96,26)] hover:opacity-70' : 'bg-[#ccc]'}  text-white font-semibold rounded-lg mb-4 mt-2`}>Nhấn vào đây để lấy mã</button>
+            </div> : <button onClick={handleClick} className={`py-2 px-4 ${count < 0 ? 'bg-[rgb(40,96,26)] hover:opacity-70' : 'bg-[#ccc]'}  text-white font-semibold rounded-lg mb-4 mt-2`}>Nhấn vào đây để xem truyện</button>
           }
           <div className="lg:w-1/2 flex flex-col gap-y-4 text-justify">
             <p>
-              <span className="text-white">Bấm vào chữ <span className="font-bold text-[rgb(240,131,112)]">"Nhấn Vào Đây Để Lấy Mã" <span className="text-white">bên trên để chuyển sang web lấy mã xem<span className="font-bold text-[rgb(89,171,109)]"> "Full" <span className="text-white">truyện !!!</span></span></span></span></span>
+              <span className="text-white">Bấm vào chữ <span className="font-bold text-[rgb(240,131,112)]">"Nhấn Vào Đây Để Lấy Mã" <span className="text-white">bên trên để chuyển sang web xem<span className="font-bold text-[rgb(89,171,109)]"> "Full" <span className="text-white">truyện !!!</span></span></span></span></span>
             </p>
             <p>
               <span className="text-white">Nếu web mã<span className="font-bold text-[rgb(132,197,251)]"> "LỖI" <span className="text-white">vui lòng thoát ra và vào lại link để chuyển sang web lấy " MÃ " khác <span className="font-bold text-[rgb(132,197,251)]">(dùng WIFI bị lỗi có thể chuyển sang 4G rồi thử lại) !!!</span></span></span></span>
