@@ -22,17 +22,17 @@ const RootLayout: React.FC<RootLayoutProps> = ({
   return (
     <html lang="vi">
       <GoogleAnalytics gaId="G-Y7Z935T8GP" />
+      {/* <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
       <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
-      <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
-      <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
+      <script src="https://www.vipads.live/vn/c-1679-25.js"></script> */}
       <ThemeRegistry>
         <body className={montserrat.className}>
           <ProvidersContext>{children}</ProvidersContext>
-          <script src="https://www.vipads.live/vn/81C6A760-1739-1681-33-06814AC37891.blpha"></script>
+          {/* <script src="https://www.vipads.live/vn/81C6A760-1739-1681-33-06814AC37891.blpha"></script> */}
         </body>
       </ThemeRegistry>
-      <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
-      <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
+      {/* <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
+      <script src="https://www.vipads.live/vn/c-1679-25.js"></script> */}
     </html>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Script from 'next/script'
 
 export default function HomePage() {
 
@@ -14,6 +15,8 @@ export default function HomePage() {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
+
+      <Script src="https://www.vipads.live/vn/c-1679-25.js" />
 
       <div className="hidden lg:block w-2/3 py-16 bg-gray-100 flex justify-center items-center font-semibold text-[20px] text-center">QUẢNG CÁO Ở ĐÂY</div>
 
@@ -72,7 +75,7 @@ export default function HomePage() {
           <span>Khi website bị lỗi hoặc không tìm thấy mã. Bạn hãy nhấn vào nút bên dưới để đổi từ khoá khác nha.</span>
         </div>
 
-        <button onClick={directSite} className="w-1/2 lg:w-1/4 bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-2 rounded-full inline-flex items-center w-full justify-center text-[14px] lg:text-[16px]">
+        <button onClick={directSite} className="w-1/2 lg:w-1/4 bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-2 rounded-full inline-flex items-center justify-center text-[14px] lg:text-[16px]">
           Đổi từ khoá mới
         </button>
       </div>
