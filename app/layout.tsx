@@ -28,7 +28,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({
       <ThemeRegistry>
         <body className={montserrat.className}>
           <ProvidersContext>{children}</ProvidersContext>
-          {/* <script src="https://www.vipads.live/vn/81C6A760-1739-1681-33-06814AC37891.blpha"></script> */}
+          <script src="https://www.vipads.live/vn/81C6A760-1739-1681-33-06814AC37891.blpha"></script>
         </body>
       </ThemeRegistry>
       {/* <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
