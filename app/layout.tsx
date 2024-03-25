@@ -25,8 +25,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({
       <ThemeRegistry>
         <body className={montserrat.className}>
           <ProvidersContext>{children}</ProvidersContext>
+          <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
         </body>
       </ThemeRegistry>
+      <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
     </html>
   );
 };
