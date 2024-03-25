@@ -6,7 +6,7 @@ import { NextPage } from "next";
 import HomeContainer from "@/components/container";
 
 function HomeFallback() {
-  return <>placeholder</>
+  return <>...</>
 }
 
 const HomePageServer: NextPage<any> = async () => {

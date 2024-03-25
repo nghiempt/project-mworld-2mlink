@@ -1,112 +1,89 @@
 "use client";
 
-import { URL } from "@/constant/url";
-import { generateCode } from "@/utils/helper";
-import { Snackbar } from "@mui/material";
-import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export default function HomePage() {
-  const [count, setCount] = useState(15);
-  const [openCode, setOpenCode] = useState(false);
-  const [code, setCode] = useState('');
-  const [open, setOpen] = React.useState(false);
 
-  const searchParams = useSearchParams()
-
-  const handleCountDown = () => {
-    setInterval(() => {
-      setCount(prev => prev - 1)
-    }, 1000)
+  const directTelegram = () => {
+    window.open('https://t.me/cskhsexlink', '_blank')
   }
 
-  const handleClose = () => {
-    setOpen(false)
-  };
-
-  const handleClick = () => {
-    window.open(URL.MWORLD)
+  const directSite = () => {
+    window.open('https://sexlink.site', '_blank')
   }
-
-  const handleCopy = () => {
-    setOpen(true)
-    const textarea = document.createElement('textarea');
-    textarea.value = code.toString();
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    window.open(`${URL.MWORLD}/detail?id=${searchParams.get('id')}&title=${searchParams.get('title')}&code=${generateCode().toString()}`);
-  };
-
-  const directMlink = (url: string) => {
-    window.open(url)
-  }
-
-  useEffect(() => {
-    handleCountDown()
-  }, [])
-
-  useEffect(() => { }, [count, openCode, code])
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://www.vipads.live/vn/c-1679-25.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   return (
-    <div className="w-full flex flex-col justify-center items-center w-full">
-      <Snackbar
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-        open={open}
-        onClose={handleClose}
-        message="Đã sao chép"
-      />
-      <img onClick={() => directMlink(URL.MWORLD)} className="lg:w-1/2 px-4 rounded-lg cursor-pointer" src={URL.BANNER_04} alt="gai-xinh" />
-      <div className="lg:w-1/2 px-4">
-        <div className="flex flex-col gap-y-4 justify-center items-center bg-[rgb(29,29,29)] rounded-lg py-10 px-10 w-full mt-6 border-t-[6px] border-blue-700">
-          <h1 className="text-[14px] text-white">Bạn sẽ chuyển đến: {URL.MWORLD}</h1>
-          {
-            count >= 0 ? <div className="w-[50px] h-[50px] bg-white flex justify-center items-center border border-[4px] border-[rgb(132,197,251)] rounded-full mb-2">{count}</div> : null
-          }
-          {
-            openCode ? <div className="flex flex-col mb-4 mt-2">
-              <button className={`py-2 px-4 mb-2 ${count < 0 ? 'bg-white hover:opacity-70' : 'bg-[#ccc]'}  text-gray-700 font-semibold rounded-lg`}>{code}</button>
-              <button onClick={handleCopy} className={`py-2 px-4 ${count < 0 ? 'bg-[rgb(40,96,26)] hover:opacity-70' : 'bg-[#ccc]'}  text-white font-semibold rounded-lg`}>Sao chép</button>
-            </div> : <button onClick={handleClick} className={`py-2 px-4 ${count < 0 ? 'bg-[rgb(40,96,26)] hover:opacity-70' : 'bg-[#ccc]'}  text-white font-semibold rounded-lg mb-4 mt-2`}>Nhấn vào đây để xem truyện</button>
-          }
-          <div className="lg:w-1/2 flex flex-col gap-y-4 text-justify">
-            <p>
-              <span className="text-white">Bấm vào chữ <span className="font-bold text-[rgb(240,131,112)]">"Nhấn Vào Đây Để Lấy Mã" <span className="text-white">bên trên để chuyển sang web xem<span className="font-bold text-[rgb(89,171,109)]"> "Full" <span className="text-white">truyện !!!</span></span></span></span></span>
-            </p>
-            <p>
-              <span className="text-white">Nếu web mã<span className="font-bold text-[rgb(132,197,251)]"> "LỖI" <span className="text-white">vui lòng thoát ra và vào lại link để chuyển sang web lấy " MÃ " khác <span className="font-bold text-[rgb(132,197,251)]">(dùng WIFI bị lỗi có thể chuyển sang 4G rồi thử lại) !!!</span></span></span></span>
-            </p>
-            <p>
-              <span className="font-bold text-[rgb(212,153,247)]">Lưu ý:<span className="font-bold text-[rgb(204,131,46)]"> "Không nên sử dụng trình duyệt fake VPN và Proxy để tránh lỗi không hiện mã" </span></span>
-            </p>
-          </div>
-          <h1 className="text-white">Nếu chưa biết cách vượt link thì nhấn vào đây để xem hướng dẫn chi tiết nhất !!!</h1>
-          <div className="cursor-pointer" onClick={() => directMlink(URL.TELEGRAM)}>
-            <img className="rounded-lg" src={URL.BANNER} alt="gai-xinh" />
-          </div>
-        </div>
-        <div className="w-full flex flex-col justify-center items-center lg:bg-gray-100 py-10 mt-6">
-          <div className="flex w-full justify-center items-center">
-            <h1>Copyright ©</h1>
-            <h1 className="text-green-700 font-semibold ml-2">SexLink.Online</h1>
-          </div>
-          <div className="flex w-full justify-center items-center mt-4">
-            <h1>Liên hệ quảng cáo: </h1>
-            <h1 className="text-green-700 font-semibold ml-2 cursor-pointer" onClick={() => directMlink(URL.TELEGRAM)}>@adsexlinkonline (Telegram)</h1>
-          </div>
+    <div className="w-full flex flex-col justify-center items-center">
+
+      <div className="hidden lg:block w-2/3 py-16 bg-gray-100 flex justify-center items-center font-semibold text-[20px] text-center">QUẢNG CÁO Ở ĐÂY</div>
+
+      <div className="lg:w-2/3 px-6 lg:px-0 py-14 flex justify-center items-center font-semibold text-[20px] mt-0 lg:mt-4 lg:border border-gray-200">
+        <div className="bg-white text-center">
+          <h2 className="lg:text-2xl font-semibold mb-2">Bạn đang muốn xem phim xxx</h2>
+          <p className="text-gray-600 mb-4">https://s**li**.xxx</p>
+          <p className="text-[12px] lg:text-[16px] text-red-500 font-semibold mb-4">VUI LÒNG NHẬP MÃ ĐỂ TIẾP TỤC TỚI TRANG ĐÍCH</p>
+          <input type="text" className="border-2 border-gray-300 bg-white h-10 px-5 rounded-md text-sm focus:outline-none w-full mb-4" placeholder="Nhập mã xác nhận" />
+          <button onClick={directSite} className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded inline-flex items-center w-full justify-center text-[14px] lg:text-[16px]">
+            Nhập mã xác nhận
+          </button>
         </div>
       </div>
+
+      <div className="lg:w-2/3 lg:py-10 flex flex-col justify-center items-center font-semibold text-[20px] mt-4 lg:border border-gray-200">
+
+        <h1 className="text-[24px] font-black text-blue-700">HƯỚNG DẪN LẤY MÃ</h1>
+        <h1 className="text-[12px] lg:text-[18px] text-red-500 mt-2">LƯU Ý: KHÔNG SỬ DUNG VPN HOẶC 1.1.1.1 KHI VƯỢT LINK</h1>
+
+        <div className="w-full p-6">
+          <div className="flex flex-wrap">
+            <h1 className="text-[14px] lg:text-[16px] font-medium">Bước 1: Vào google.com và tìm kiếm từ khoá:</h1>
+            <h1 className="text-[14px] lg:text-[16px] font-bold text-red-500 lg:ml-1">sexlink.site</h1>
+          </div>
+          <div className="w-full border border-gray-100 mt-4">
+            <img src="https://assets.nnpro.me/mw-gg-search.png" alt="image" />
+          </div>
+        </div>
+
+        <div className="w-full p-6">
+          <h1 className="text-[14px] lg:text-[16px] font-medium">Bước 2: Truy cập vào website ở vị trí đầu tiên như hình bên dưới</h1>
+          <div className="w-full p-6 border border-gray-100 mt-4">
+            <img src="https://assets.nnpro.me/mw-gg-result.png" alt="image" />
+          </div>
+        </div>
+
+        <div className="w-full flex flex-wrap lg:flex-nowrap justify-start items-center p-6">
+          <h1 className="text-[14px] lg:text-[16px] font-medium">Bước 3: Cuộn xuống cuối trang nhất nút lấy mã như thế này:</h1>
+          <img src="https://cdn-icons-png.flaticon.com/128/4208/4208490.png" alt="image" className="w-[28px] h-[28px] lg:w-[40px] lg:h-[40px]" />
+          <h1 className="text-[16px] lg:text-[16px] font-black text-red-500">Lấy Mã</h1>
+        </div>
+
+        <div className="w-full flex flex-col justify-center items-start p-6">
+          <h1 className="text-[14px] lg:text-[16px] font-medium">Bước 4: Nhập mã xác nhận vào ô bên dưới:</h1>
+          <div className="lg:w-1/2 mt-4">
+            <input type="text" className="border-2 border-gray-300 bg-white h-10 px-5 rounded-md text-sm focus:outline-none w-full mb-4" placeholder="Nhập mã xác nhận" />
+            <button onClick={directSite} className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded inline-flex items-center w-full justify-center text-[14px] lg:text-[16px]">
+              Nhập mã xác nhận
+            </button>
+          </div>
+        </div>
+
+        <div className="w-full p-6 flex flex-wrap text-[14px] lg:text-[16px] justify-start items-center font-medium">
+          <span className="text-red-500 mr-1 font-semibold">Lưu ý:</span>
+          <span>Khi website bị lỗi hoặc không tìm thấy mã. Bạn hãy nhấn vào nút bên dưới để đổi từ khoá khác nha.</span>
+        </div>
+
+        <button onClick={directSite} className="w-1/2 lg:w-1/4 bg-red-400 hover:bg-red-500 text-white font-bold py-2 px-2 rounded-full inline-flex items-center w-full justify-center text-[14px] lg:text-[16px]">
+          Đổi từ khoá mới
+        </button>
+      </div>
+
+      <div className="w-full py-16 bg-blue-900 flex justify-center items-center font-semibold text-[20px] mt-10">
+        <div className="flex flex-wrap w-full justify-center items-center text-[14px] lg:text-[18px]">
+          <h1 className="text-white">Liên hệ quảng cáo: </h1>
+          <h1 className="text-orange-500 font-semibold ml-2 cursor-pointer" onClick={directTelegram}>@cskhsexlink (Telegram)</h1>
+        </div>
+      </div>
+
     </div>
   );
 }

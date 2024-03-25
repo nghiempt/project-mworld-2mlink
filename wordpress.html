@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+    </div>
+
+    <script>
+
+        let pagination = document.querySelector('.pagination');
+        let a = document.createElement('a');
+        a.href = '#';
+        a.textContent = '7';
+        pagination.appendChild(a);
+        let count = 0;
+
+        let listPost = document.querySelectorAll('.posts-loop');
+
+        // get div tag with class name "posts-loop" to get all children and count how many item ?
+
+        document.querySelector('.posts-loop').childElementCount;
+
+        // get all children of div tag with class name "posts
+        document.querySelectorAll('.posts-loop').forEach(function (element) {
+            console.log(element);
+            // count how many div tag has class name is 'post'
+            console.log(element.childElementCount);
+            count += element.childElementCount;
+        });
+
+        // set count to a tag
+        a.textContent = count;
+
+        document.querySelectorAll('.pagination a').forEach(function (element) {
+            element.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.querySelectorAll('.pagination a').forEach(function (element) {
+                    element.classList.remove('active');
+                });
+                element.classList.add('active');
+            });
+        });
+
+        // set div post-loop to display 8 items
+        document.querySelectorAll('.posts-loop').forEach(function (element) {
+            let count = element.childElementCount;
+            if (count > 8) {
+                for (let i = 8; i < count; i++) {
+                    element.children[i].style.display = 'none';
+                }
+            }
+        });
+
+        // each click on a tag, display next 8 items
+        document.querySelectorAll('.pagination a').forEach(function (element) {
+            element.addEventListener('click', function (event) {
+                event.preventDefault();
+                document.querySelectorAll('.pagination a').forEach(function (element) {
+                    element.classList.remove('active');
+                });
+                element.classList.add('active');
+                let index = parseInt(element.textContent);
+                document.querySelectorAll('.posts-loop').forEach(function (element) {
+                    let count = element.childElementCount;
+                    for (let i = 0; i < count; i++) {
+                        element.children[i].style.display = 'none';
+                    }
+                    for (let i = index * 8 - 8; i < index * 8; i++) {
+                        element.children[i].style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
