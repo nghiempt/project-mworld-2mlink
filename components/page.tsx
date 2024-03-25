@@ -26,9 +26,6 @@ export default function HomePage() {
 
   const handleClick = () => {
     window.open(URL.MWORLD)
-    // const newCode = generateCode()
-    // setCode(newCode.toString())
-    // setOpenCode(true)
   }
 
   const handleCopy = () => {
@@ -51,6 +48,16 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => { }, [count, openCode, code])
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.vipads.live/vn/c-1679-25.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="w-full flex flex-col justify-center items-center w-full">
