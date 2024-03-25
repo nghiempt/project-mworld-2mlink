@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Script from 'next/script'
 
 export default function HomePage() {
 
@@ -15,10 +14,6 @@ export default function HomePage() {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-
-      <Script src="https://www.vipads.live/vn/c-1679-25.js" strategy="worker" />
-
-      <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
 
       <div className="hidden lg:block w-2/3 py-16 bg-gray-100 flex justify-center items-center font-semibold text-[20px] text-center">QUẢNG CÁO Ở ĐÂY</div>
 
