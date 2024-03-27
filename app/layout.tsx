@@ -24,13 +24,13 @@ const RootLayout: React.FC<RootLayoutProps> = ({
       <GoogleAnalytics gaId="G-Y7Z935T8GP" />
       <ThemeRegistry>
         <body className={montserrat.className}>
+          {/* <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
           <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
-          <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
-          <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
+          <script src="https://www.vipads.live/vn/c-1679-25.js"></script> */}
           <ProvidersContext>{children}</ProvidersContext>
           <script src="https://www.vipads.live/vn/81C6A760-1739-1681-33-06814AC37891.blpha"></script>
-          <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
-          <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
+          {/* <script src="https://www.vipads.live/vn/c-1679-25.js"></script>
+          <script src="https://www.vipads.live/vn/c-1679-25.js"></script> */}
         </body>
       </ThemeRegistry>
     </html>

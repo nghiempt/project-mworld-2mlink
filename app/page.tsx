@@ -3,7 +3,7 @@
 import React from "react";
 import { Suspense } from 'react'
 import { NextPage } from "next";
-import HomeContainer from "@/components/container";
+import HomeContainer from "@/components/home_container";
 
 function HomeFallback() {
   return <>...</>
